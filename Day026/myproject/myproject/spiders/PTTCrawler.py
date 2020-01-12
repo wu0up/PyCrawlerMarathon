@@ -5,11 +5,11 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from pprint import pprint
 
-# 範例目標網址: https://www.ptt.cc/bbs/Gossiping/M.1557928779.A.0C1.html
+# 目標網址: https://www.ptt.cc/bbs/C_Chat/M.1578826756.A.CEB.html
 class PttcrawlerSpider(scrapy.Spider):
     name = 'PTTCrawler'
     allowed_domains = ['www.ptt.cc']
-    start_urls = ['https://www.ptt.cc/bbs/Gossiping/M.1557928779.A.0C1.html']
+    start_urls = ['https://www.ptt.cc/bbs/C_Chat/M.1578826756.A.CEB.html']
     cookies = {'over18': '1'}
 
     def start_requests(self):
@@ -125,7 +125,7 @@ class PttcrawlerSpider(scrapy.Spider):
         # all 為總共留言數量 
         message_count = {'all': p+b+n, 'count': p-b, 'push': p, 'boo': b, 'neutral': n}
         
-        # 整理文章資訊
+        # 整理文章資訊->為什麼data沒有display?
         data = {
             'url': response.url,
             'article_author': author,
