@@ -1,17 +1,23 @@
 # -*- coding: utf-8 -*-
+#這非常重要, 產生json file需要以下code
+#scrapy runspider yourspider.py -o filename.json 
+
+
 import scrapy
+import sys
+sys.path.append('../')   #原先一直無法從item import PTTArticleitem, 但加了import sys 和sys.path.append就可了
 import re
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 from pathlib import Path
 from pprint import pprint
-from ..items import PTTArticleItem
+from items import PTTArticleItem
 
 # 範例目標網址: https://www.ptt.cc/bbs/Gossiping/M.1557928779.A.0C1.html
 class PttcrawlerSpider(scrapy.Spider):
     name = 'PTTCrawler'
     allowed_domains = ['www.ptt.cc']
-    start_urls = ['https://www.ptt.cc/bbs/Gossiping/M.1557928779.A.0C1.html']
+    start_urls = ['https://www.ptt.cc/bbs/movie/M.1579797427.A.602.html']
     cookies = {'over18': '1'}
 
     def start_requests(self):

@@ -14,7 +14,7 @@ BOT_NAME = 'myproject'
 SPIDER_MODULES = ['myproject.spiders']
 NEWSPIDER_MODULE = 'myproject.spiders'
 
-
+FEED_EXPORT_ENCODING = 'utf-8' #使json顯示中文
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'myproject (+http://www.yourdomain.com)'
 
